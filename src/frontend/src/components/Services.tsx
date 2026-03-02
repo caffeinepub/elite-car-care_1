@@ -1,75 +1,68 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import ScrollReveal from "./ScrollReveal";
 
 const services = [
   {
-    image: "/assets/generated/service-car-wash.dim_600x400.jpg",
     name: "Car Wash",
-    subtitle: "Shine & Clean",
     description:
-      "Professional hand wash with premium shampoo, wheel cleaning, and streak-free drying for a spotless finish every time.",
+      "Full exterior wash with premium foam, hand rinse, and streak-free dry finish. Keeps your car looking fresh and clean.",
+    duration: "30–45 mins",
+    image: "/assets/generated/service-car-wash.dim_600x400.jpg",
   },
   {
-    image: "/assets/generated/service-bike-wash.dim_600x400.jpg",
     name: "Bike Wash",
-    subtitle: "Two-Wheeler Care",
     description:
-      "Thorough cleaning for motorcycles and scooters — frame, wheels, engine casing, and chrome polishing included.",
+      "Thorough two-wheeler wash with careful attention to chrome parts, tyres, and body panels for a spotless finish.",
+    duration: "20–30 mins",
+    image: "/assets/generated/service-bike-wash.dim_600x400.jpg",
   },
   {
-    image: "/assets/generated/service-detailing.dim_600x400.jpg",
     name: "Detailing",
-    subtitle: "Inside & Out",
     description:
-      "Comprehensive detailing package covering deep interior clean, exterior polish, and every surface treated to perfection.",
+      "Complete interior and exterior detailing — vacuuming, dashboard cleaning, seat conditioning, and exterior decontamination.",
+    duration: "2–4 hours",
+    image: "/assets/generated/service-detailing.dim_600x400.jpg",
   },
   {
-    image: "/assets/generated/service-polishing.dim_600x400.jpg",
     name: "Polishing",
-    subtitle: "Mirror Finish",
     description:
-      "Multi-stage machine polishing to eliminate swirl marks, light scratches, and oxidation — restoring your paint to a showroom shine.",
+      "Machine or hand polishing to remove swirl marks, light scratches, and oxidation, restoring a deep glossy shine.",
+    duration: "2–3 hours",
+    image: "/assets/generated/service-polishing.dim_600x400.jpg",
   },
   {
-    image: "/assets/generated/service-ceramic-coating.dim_600x400.jpg",
     name: "Ceramic Coating",
-    subtitle: "Long-Lasting Protection",
     description:
-      "Professional-grade ceramic coating that bonds to your paint, providing years of hydrophobic protection, deep gloss, and resistance to contaminants.",
+      "Long-lasting nano-ceramic protection that bonds to the paint, repelling water, dirt, and UV rays for years of shine.",
+    duration: "4–6 hours",
+    image: "/assets/generated/service-ceramic-coating.dim_600x400.jpg",
   },
   {
-    image: "/assets/generated/service-window-film.dim_600x400.jpg",
     name: "Window Film",
-    subtitle: "UV & Heat Protection",
     description:
-      "High-quality window tinting that blocks UV rays, reduces heat, and enhances privacy while keeping your interior cool.",
+      "High-quality tinting film that reduces heat, blocks UV rays, and adds privacy while enhancing your vehicle's look.",
+    duration: "1–2 hours",
+    image: "/assets/generated/service-window-film.dim_600x400.jpg",
   },
   {
+    name: "PPF (Paint Protection Film)",
+    description:
+      "Self-healing transparent film applied to high-impact zones to protect the paint from stone chips, scratches, and debris.",
+    duration: "4–8 hours",
     image: "/assets/generated/service-ppf.dim_600x400.jpg",
-    name: "PPF",
-    subtitle: "Paint Protection Film",
-    description:
-      "Self-healing paint protection film that guards against stone chips, scratches, and road debris — invisible armor for your vehicle.",
   },
   {
-    image: "/assets/generated/service-wrapping.dim_600x400.jpg",
     name: "Wrapping",
-    subtitle: "Custom Vinyl Wrap",
     description:
-      "Full or partial vinyl wraps in any color or finish — matte, gloss, satin, or chrome — for a completely transformed look.",
+      "Full or partial vehicle vinyl wrapping to change colour, add texture, or protect the original paint beneath.",
+    duration: "1–3 days",
+    image: "/assets/generated/service-wrapping.dim_600x400.jpg",
   },
   {
-    image: "/assets/generated/service-accessories.dim_600x400.jpg",
     name: "Car Accessories",
-    subtitle: "All Types Available",
     description:
-      "Wide range of car accessories including seat covers, floor mats, dash cams, air fresheners, and more for every vehicle.",
+      "Wide range of car accessories including seat covers, floor mats, dash cams, LED lights, and custom interior upgrades.",
+    duration: "Varies",
+    image: "/assets/generated/service-accessories.dim_600x400.jpg",
   },
 ];
 
@@ -80,7 +73,7 @@ export default function Services() {
       className="py-24 px-4 sm:px-6"
       style={{ backgroundColor: "oklch(0.1 0 0)" }}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         {/* Header */}
         <ScrollReveal className="text-center mb-16">
           <p className="section-subheading">What We Offer</p>
@@ -106,114 +99,93 @@ export default function Services() {
           </p>
         </ScrollReveal>
 
-        {/* Carousel */}
-        <ScrollReveal>
-          <Carousel
-            data-ocid="services.carousel"
-            opts={{
-              align: "start",
-              loop: true,
-              dragFree: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {services.map((service, i) => (
-                <CarouselItem
-                  key={service.name}
-                  data-ocid={`services.item.${i + 1}`}
-                  className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
-                >
-                  <div
-                    className="group cursor-default overflow-hidden h-full flex flex-col"
-                    style={{
-                      background: "oklch(0.13 0 0)",
-                      border: "1px solid oklch(0.2 0 0)",
-                      borderRadius: "8px",
+        {/* Horizontal Cards */}
+        <div className="space-y-6" data-ocid="services.list">
+          {services.map((service, i) => (
+            <ScrollReveal key={service.name}>
+              <div
+                data-ocid={`services.item.${i + 1}`}
+                className="flex flex-col sm:flex-row overflow-hidden"
+                style={{
+                  background: "oklch(0.13 0 0)",
+                  border: "1px solid oklch(0.2 0 0)",
+                  borderRadius: "12px",
+                }}
+              >
+                {/* Image */}
+                <div className="sm:w-48 md:w-56 shrink-0 h-48 sm:h-auto overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.name}
+                    className="w-full h-full object-cover"
+                    style={{ transition: "transform 0.4s ease" }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.transform =
+                        "scale(1.05)";
                     }}
-                  >
-                    {/* Photo */}
-                    <div
-                      className="relative overflow-hidden"
-                      style={{ height: "200px" }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.transform =
+                        "scale(1)";
+                    }}
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="flex flex-col justify-center px-6 py-5 gap-2">
+                  {/* Number + Name */}
+                  <div className="flex items-center gap-3">
+                    <span
+                      className="text-sm font-bold font-display"
+                      style={{ color: "oklch(0.78 0.14 85)" }}
                     >
-                      <img
-                        src={service.image}
-                        alt={service.name}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      {/* Gradient overlay */}
-                      <div
-                        className="absolute inset-0"
-                        style={{
-                          background:
-                            "linear-gradient(to top, oklch(0.13 0 0) 0%, transparent 60%)",
-                        }}
-                      />
-                      {/* Subtitle badge */}
-                      <div
-                        className="absolute top-3 right-3 px-2 py-1 text-xs font-semibold tracking-wider uppercase"
-                        style={{
-                          background: "oklch(0.78 0.14 85 / 0.15)",
-                          border: "1px solid oklch(0.78 0.14 85 / 0.4)",
-                          borderRadius: "4px",
-                          color: "oklch(0.78 0.14 85)",
-                          backdropFilter: "blur(4px)",
-                        }}
-                      >
-                        {service.subtitle}
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-5 flex flex-col flex-1">
-                      <h3
-                        className="text-base font-bold font-display mb-2"
-                        style={{ color: "oklch(0.95 0.01 90)" }}
-                      >
-                        {service.name}
-                      </h3>
-                      <p
-                        className="text-sm leading-relaxed"
-                        style={{ color: "oklch(0.6 0 0)" }}
-                      >
-                        {service.description}
-                      </p>
-                    </div>
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3
+                      className="text-lg font-bold font-display tracking-wide"
+                      style={{ color: "oklch(0.95 0.01 90)" }}
+                    >
+                      {service.name}
+                    </h3>
                   </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
 
-            {/* Navigation buttons */}
-            <CarouselPrevious
-              data-ocid="services.prev_button"
-              className="hidden sm:flex -left-5 size-10 border-0"
-              style={{
-                background: "oklch(0.78 0.14 85 / 0.15)",
-                color: "oklch(0.78 0.14 85)",
-                border: "1px solid oklch(0.78 0.14 85 / 0.4)",
-              }}
-            />
-            <CarouselNext
-              data-ocid="services.next_button"
-              className="hidden sm:flex -right-5 size-10 border-0"
-              style={{
-                background: "oklch(0.78 0.14 85 / 0.15)",
-                color: "oklch(0.78 0.14 85)",
-                border: "1px solid oklch(0.78 0.14 85 / 0.4)",
-              }}
-            />
-          </Carousel>
+                  {/* Description */}
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: "oklch(0.6 0 0)" }}
+                  >
+                    {service.description}
+                  </p>
 
-          {/* Mobile swipe hint */}
-          <p
-            className="text-center text-xs mt-4 sm:hidden"
-            style={{ color: "oklch(0.45 0 0)" }}
-          >
-            Swipe to explore all services →
-          </p>
-        </ScrollReveal>
+                  {/* Duration badge */}
+                  <div className="flex items-center gap-2 mt-1">
+                    <svg
+                      className="w-4 h-4 shrink-0"
+                      style={{ color: "oklch(0.78 0.14 85)" }}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      aria-label="Duration"
+                      role="img"
+                    >
+                      <circle cx="12" cy="12" r="10" stroke="currentColor" />
+                      <polyline
+                        points="12 6 12 12 16 14"
+                        stroke="currentColor"
+                      />
+                    </svg>
+                    <span
+                      className="text-xs font-medium"
+                      style={{ color: "oklch(0.78 0.14 85)" }}
+                    >
+                      ⏱ {service.duration}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
       </div>
     </section>
   );
