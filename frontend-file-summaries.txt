@@ -1,0 +1,16 @@
+{
+  "frontend/src/index.css": "Global styles defining the Elite Car Care dark/gold luxury design system — OKLCH color tokens, Montserrat/Playfair Display fonts, scroll-reveal animations, custom scrollbar, and reusable utility classes (btn-gold, card-dark, section-heading, input-dark).",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with Montserrat/Playfair Display font families, gold/surface color tokens mapped to OKLCH CSS variables, gold box-shadow utilities, and fade-in-up/shimmer keyframe animations.",
+  "frontend/src/hooks/useQueries.ts": "React Query hook encapsulating the backend submitBooking mutation with cache invalidation on success.",
+  "frontend/src/components/ScrollReveal.tsx": "Reusable Intersection Observer wrapper that adds a CSS 'visible' class to trigger fade-in/slide-up entrance animations when elements enter the viewport.",
+  "frontend/src/components/Navbar.tsx": "Sticky navigation bar with transparent-to-dark scroll transition, smooth-scroll anchor links to all sections, gold accents, and a mobile hamburger drawer.",
+  "frontend/src/components/Hero.tsx": "Full-screen hero section with the generated background image, dark overlay, business name with gold gradient text, tagline, Book Now/Our Services CTAs, and animated stats row.",
+  "frontend/src/components/Services.tsx": "Responsive 3-column grid of six service cards (Full Detail, Exterior Wash & Wax, Interior Deep Clean, Paint Correction, Ceramic Coating, Engine Bay Cleaning) with gold icon boxes and hover lift effects.",
+  "frontend/src/components/WhyChooseUs.tsx": "Two-column layout highlighting four key differentiators (Experienced Professionals, Premium Products, Satisfaction Guaranteed, Mobile Service) with gold circular icons and a Get a Free Quote CTA.",
+  "frontend/src/components/Gallery.tsx": "Six-image responsive gallery grid with gold hover overlay, zoom effect, label badges, and a click-to-open lightbox modal.",
+  "frontend/src/components/Pricing.tsx": "Three pricing tier cards (Basic $79, Standard $149, Premium $299) with feature lists, gold-highlighted Standard tier badge, and Book Now CTAs that scroll to the contact form.",
+  "frontend/src/components/Testimonials.tsx": "Six customer testimonial cards in a responsive grid with gold star ratings, quote icons, review text, and author avatars with hover border highlight.",
+  "frontend/src/components/Contact.tsx": "Contact/booking form with six fields (name, email, phone, service dropdown, date picker, message), client-side validation, backend submission via useSubmitBooking, loading spinner, error state, and success confirmation screen.",
+  "frontend/src/components/Footer.tsx": "Four-column footer with brand logo, navigation links, hours of operation, contact details, social media icons (Facebook, Instagram, X), copyright, and caffeine.ai attribution with UTM tracking.",
+  "frontend/src/App.tsx": "Root application component composing all page sections (Navbar, Hero, Services, WhyChooseUs, Gallery, Pricing, Testimonials, Contact, Footer) in a single-page layout."
+}

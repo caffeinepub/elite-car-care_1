@@ -1,0 +1,234 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Elite Car Care — Premium Business Website (Frontend)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Apply luxurious dark/gold visual theme with responsive design, smooth scroll, and scroll animations",
+      "acceptanceCriteria": [
+        "Dark background and gold accents are applied consistently across all sections",
+        "Text is legible with sufficient contrast on all backgrounds",
+        "Smooth scroll is enabled site-wide",
+        "Sections animate in on scroll (fade or slide)",
+        "Layout is responsive and usable on mobile (≤ 375px), tablet (768px), and desktop (1280px+)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Apply global dark background (#0A0A0A/#111111), gold accent colors (#D4AF37/#F5C842), off-white text, smooth scroll behavior, and import premium sans-serif typeface (Inter or Montserrat). Define CSS custom properties for the color palette."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom dark background colors, gold/amber accent colors, and responsive breakpoints (mobile ≤375px, tablet 768px, desktop 1280px+)."
+        },
+        {
+          "path": "frontend/src/components/ScrollReveal.tsx",
+          "operation": "create",
+          "description": "Create a reusable ScrollReveal wrapper component that applies fade-in and slide-up animations when elements enter the viewport using Intersection Observer. This component will be used to wrap sections throughout the app."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Build full-screen Hero section with business name, tagline, CTA button, and generated hero background image",
+      "acceptanceCriteria": [
+        "Hero section occupies at least 90vh on desktop",
+        "Business name, tagline, and CTA button are all visible and styled with gold accents",
+        "'Book Now' button smooth-scrolls to the contact form section",
+        "Background image has a dark overlay ensuring text readability"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Hero.tsx",
+          "operation": "create",
+          "description": "Create Hero section component with full-screen layout (min-height 90vh), business name 'Elite Car Care' in large bold typography, tagline 'Premium Auto Detailing & Car Care Services', 'Book Now' CTA button that smooth-scrolls to the Contact section. Apply background image using frontend/public/assets/generated/hero-bg.dim_1920x1080.jpg with dark overlay for text legibility. Style with gold accents."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render Hero component at the top of the page. Ensure the component is wired into the main app layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Build Services section with six service cards in a responsive grid with hover effects",
+      "acceptanceCriteria": [
+        "All six services are displayed",
+        "Each card has an icon, name, and description",
+        "Cards are arranged in a responsive grid (3 columns desktop, 2 tablet, 1 mobile)",
+        "Hover effect applies a gold accent"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Services.tsx",
+          "operation": "create",
+          "description": "Create Services section component displaying six service cards (Full Detail, Exterior Wash & Wax, Interior Deep Clean, Paint Correction & Protection, Ceramic Coating, Engine Bay Cleaning) in a responsive grid (3 cols desktop, 2 tablet, 1 mobile). Each card includes an icon, service name, and short description. Apply gold border or lift hover effect. Wrap in ScrollReveal for entrance animation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render Services component below Hero section, ensuring proper layout and spacing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build 'Why Choose Us' section with four key differentiators using gold icons",
+      "acceptanceCriteria": [
+        "All four highlights are displayed with icons, headings, and short descriptions",
+        "Section is clearly labeled 'Why Choose Us'",
+        "Icons use gold accent color",
+        "Layout is responsive"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/WhyChooseUs.tsx",
+          "operation": "create",
+          "description": "Create 'Why Choose Us' section component with four highlight blocks (Experienced Professionals, Premium Products, Satisfaction Guaranteed, Mobile Service Available). Each block displays a gold icon, heading, and short description. Use responsive layout with dark card styling. Wrap in ScrollReveal for entrance animation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render WhyChooseUs component below Services section, ensuring proper layout flow."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Build Gallery section with grid of generated car detailing images and hover effects",
+      "acceptanceCriteria": [
+        "At least 6 gallery images are displayed",
+        "Images are arranged in a responsive grid",
+        "Hover effect applies a gold overlay or zoom",
+        "Section is labeled 'Our Work'"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Gallery.tsx",
+          "operation": "create",
+          "description": "Create 'Our Work' Gallery section component displaying six generated images in a responsive grid: frontend/public/assets/generated/gallery-1.dim_800x600.jpg, gallery-2.dim_800x600.jpg, gallery-3.dim_800x600.jpg, gallery-4.dim_800x600.jpg, gallery-5.dim_800x600.jpg, gallery-6.dim_800x600.jpg. Apply gold overlay or zoom effect on hover. Wrap in ScrollReveal for entrance animation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render Gallery component below WhyChooseUs section."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Build Pricing section with three service tier cards and emphasized Standard tier",
+      "acceptanceCriteria": [
+        "Three pricing cards are displayed side by side on desktop, stacked on mobile",
+        "Each card lists tier name, price, and included services",
+        "Standard tier is visually highlighted",
+        "'Book Now' button on each card scrolls to the contact form"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Pricing.tsx",
+          "operation": "create",
+          "description": "Create Pricing section component with three service tier cards (Basic, Standard, Premium). Each card displays tier name, price, bullet list of included services, and 'Book Now' CTA button that smooth-scrolls to Contact section. Emphasize Standard tier with gold border or badge. Responsive layout (side-by-side desktop, stacked mobile). Wrap in ScrollReveal."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render Pricing component below Gallery section."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Build Testimonials section with customer reviews, star ratings, and responsive layout",
+      "acceptanceCriteria": [
+        "At least 4 testimonials are displayed",
+        "Each testimonial shows a star rating, quote, and name",
+        "Stars are rendered in gold",
+        "Layout is responsive"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Testimonials.tsx",
+          "operation": "create",
+          "description": "Create Testimonials section component displaying at least four customer review cards. Each card shows a 5-star rating (rendered in gold), review quote, and customer name. Use carousel or 2×2 grid layout on desktop, responsive stacking on mobile. Wrap in ScrollReveal."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render Testimonials component below Pricing section."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Build Contact/Booking form with six fields, validation, and backend submission",
+      "acceptanceCriteria": [
+        "Form contains all six specified fields",
+        "Form validates required fields before submission",
+        "On successful submission, a confirmation message is shown to the user",
+        "Submitted booking data is persisted in the backend canister",
+        "Form is responsive and styled with the dark/gold theme"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Contact.tsx",
+          "operation": "create",
+          "description": "Create Contact/Booking section component with a styled form containing six fields: Full Name (text, required), Email Address (email, required), Phone Number (tel, required), Service Selection (dropdown with 6 service options, required), Preferred Date (date picker, required), and Message/Notes (textarea, optional). Include 'Request a Quote' submit button. Validate required fields before submission. On submit, call the backend submitBooking function (name, email, phone, service, preferredDate, message). Display a success confirmation message on successful submission. Style with dark/gold theme and ensure responsive layout. Wrap in ScrollReveal."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render Contact component below Testimonials section. Assign an id attribute to the section for smooth-scroll anchor targeting from CTA buttons."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Build Footer with business info, nav links, social icons, hours, and address",
+      "acceptanceCriteria": [
+        "Footer contains business name/tagline, nav links, social icons, hours, and address",
+        "All section navigation links in the footer work correctly",
+        "Footer is responsive (stacked columns on mobile)",
+        "Styled consistently with the dark/gold theme"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "create",
+          "description": "Create Footer section component with: Elite Car Care logo/name with short tagline, navigation anchor links to all major sections (Home, Services, Why Us, Gallery, Pricing, Testimonials, Contact), social media icon links (Facebook, Instagram, Twitter/X), hours of operation (Mon–Fri 8am–6pm, Sat 9am–5pm, Sun Closed), and business address. Use very dark background and gold accents. Responsive layout (stacked columns on mobile)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render Footer component at the bottom of the page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Implement sticky navbar with smooth-scroll links, transparent-to-solid transition, and mobile hamburger menu",
+      "acceptanceCriteria": [
+        "Navbar is sticky and always visible",
+        "Navbar transitions from transparent to dark on scroll",
+        "All anchor links scroll smoothly to the correct sections",
+        "A hamburger menu is shown on mobile with a working drawer/dropdown"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Navbar.tsx",
+          "operation": "create",
+          "description": "Create sticky Navbar component displaying 'Elite Car Care' logo/name and anchor links to all major sections (Home, Services, Why Us, Gallery, Pricing, Testimonials, Contact). Navbar background is transparent over the hero section and transitions to solid dark background on scroll. All anchor links smooth-scroll to their target sections. Include a mobile hamburger menu with a working drawer/dropdown. Style with gold accents."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render Navbar component at the top of the app, ensuring it remains sticky and overlays content. Assign id attributes to all major sections (Hero, Services, WhyChooseUs, Gallery, Pricing, Testimonials, Contact) for anchor link targeting."
+        }
+      ]
+    }
+  ]
+}
