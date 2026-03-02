@@ -204,7 +204,10 @@ export default function Footer() {
           className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs"
           style={{ color: "oklch(0.4 0 0)" }}
         >
-          <p>© {year} Elite Car Care. All rights reserved.</p>
+          <p>
+            © {year} Elite Car Care. All rights reserved. | Owner: Suyev
+            Mohammad (Sumon)
+          </p>
           <p className="flex items-center gap-1">
             Built with{" "}
             <Heart

@@ -1,6 +1,7 @@
 import {
   Bike,
   Car,
+  Droplets,
   Film,
   Layers,
   Paintbrush,
@@ -38,6 +39,13 @@ const services = [
     subtitle: "Mirror Finish",
     description:
       "Multi-stage machine polishing to eliminate swirl marks, light scratches, and oxidation — restoring your paint to a showroom shine.",
+  },
+  {
+    icon: Droplets,
+    name: "Ceramic Coating",
+    subtitle: "Long-Lasting Protection",
+    description:
+      "Professional-grade ceramic coating that bonds to your paint, providing years of hydrophobic protection, deep gloss, and resistance to contaminants.",
   },
   {
     icon: Film,

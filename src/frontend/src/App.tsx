@@ -4,7 +4,6 @@ import Gallery from "./components/Gallery";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Services from "./components/Services";
-import Testimonials from "./components/Testimonials";
 import WhyChooseUs from "./components/WhyChooseUs";
 
 export default function App() {
@@ -16,7 +15,6 @@ export default function App() {
         <Services />
         <WhyChooseUs />
         <Gallery />
-        <Testimonials />
         <Contact />
       </main>
       <Footer />
